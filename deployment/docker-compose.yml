@@ -1,0 +1,204 @@
+# Docker Compose configuration for Football Analytics Platform
+
+version: '3.8'
+
+services:
+  # Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: football_analytics_db
+    environment:
+      POSTGRES_DB: football_analytics
+      POSTGRES_USER: ${DB_USER:-football_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-football_pass}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./deployment/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - football_analytics
+    restart: unless-stopped
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: football_analytics_redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - football_analytics
+    restart: unless-stopped
+
+  # Main API service
+  api:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile
+    container_name: football_analytics_api
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER:-football_user}:${DB_PASSWORD:-football_pass}@postgres:5432/football_analytics
+      - REDIS_URL=redis://redis:6379/0
+      - FOOTBALL_DATA_API_KEY=${FOOTBALL_DATA_API_KEY}
+      - SPORTMONKS_API_KEY=${SPORTMONKS_API_KEY}
+      - DEBUG=false
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - football_analytics
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  # Streamlit Dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile
+    container_name: football_analytics_dashboard
+    command: streamlit run src/visualization/dashboard.py --server.port=8501 --server.address=0.0.0.0
+    environment:
+      - API_BASE_URL=http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    networks:
+      - football_analytics
+    restart: unless-stopped
+
+  # MLflow for experiment tracking
+  mlflow:
+    image: python:3.13-slim
+    container_name: football_analytics_mlflow
+    command: >
+      bash -c "pip install mlflow psycopg2-binary &&
+               mlflow server --backend-store-uri postgresql://${DB_USER:-football_user}:${DB_PASSWORD:-football_pass}@postgres:5432/mlflow 
+               --default-artifact-root s3://mlflow-artifacts 
+               --host 0.0.0.0 
+               --port 5000"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - football_analytics
+    restart: unless-stopped
+
+  # Data collection worker
+  data_collector:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile
+    container_name: football_analytics_collector
+    command: python -m src.data.collection_worker
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER:-football_user}:${DB_PASSWORD:-football_pass}@postgres:5432/football_analytics
+      - REDIS_URL=redis://redis:6379/0
+      - FOOTBALL_DATA_API_KEY=${FOOTBALL_DATA_API_KEY}
+      - SPORTMONKS_API_KEY=${SPORTMONKS_API_KEY}
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - football_analytics
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  # Model training worker
+  model_trainer:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile
+    container_name: football_analytics_trainer
+    command: python -m src.models.training_worker
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER:-football_user}:${DB_PASSWORD:-football_pass}@postgres:5432/football_analytics
+      - REDIS_URL=redis://redis:6379/0
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - postgres
+      - redis
+      - mlflow
+    networks:
+      - football_analytics
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+    restart: "no"  # Only run when needed
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: football_analytics_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deployment/nginx.conf:/etc/nginx/nginx.conf
+      - ./deployment/ssl:/etc/nginx/ssl
+    depends_on:
+      - api
+      - dashboard
+    networks:
+      - football_analytics
+    restart: unless-stopped
+
+  # Monitoring with Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: football_analytics_prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deployment/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+    networks:
+      - football_analytics
+    restart: unless-stopped
+
+  # Grafana for dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: football_analytics_grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./deployment/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./deployment/grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - prometheus
+    networks:
+      - football_analytics
+    restart: unless-stopped
+
+networks:
+  football_analytics:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local

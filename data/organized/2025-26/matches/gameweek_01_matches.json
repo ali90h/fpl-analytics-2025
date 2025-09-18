@@ -1,0 +1,54 @@
+{
+  "gameweek": 1,
+  "matches": [
+    {
+      "id": "mock_1",
+      "homeTeam": {
+        "name": "Arsenal",
+        "id": 1
+      },
+      "awayTeam": {
+        "name": "Liverpool",
+        "id": 2
+      },
+      "utcDate": "2025-09-18T12:29:24.970599",
+      "status": "SCHEDULED",
+      "venue": "Emirates Stadium",
+      "gameweek": 1,
+      "home_difficulty": 5,
+      "away_difficulty": 5,
+      "home_advantage": 1.2,
+      "prime_time": true
+    },
+    {
+      "id": "mock_2",
+      "homeTeam": {
+        "name": "Manchester City",
+        "id": 3
+      },
+      "awayTeam": {
+        "name": "Chelsea",
+        "id": 4
+      },
+      "utcDate": "2025-09-19T12:29:24.970605",
+      "status": "SCHEDULED",
+      "venue": "Etihad Stadium",
+      "gameweek": 1,
+      "home_difficulty": 5,
+      "away_difficulty": 5,
+      "home_advantage": 1.2,
+      "prime_time": true
+    }
+  ],
+  "team_difficulty": {
+    "Arsenal": 5,
+    "Liverpool": 5,
+    "Manchester City": 5,
+    "Chelsea": 5
+  },
+  "date_range": {
+    "from": "2025-08-16",
+    "to": "2025-08-22"
+  },
+  "collected_at": "2025-09-18T12:29:24.970640"
+}
