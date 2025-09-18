@@ -1,0 +1,39 @@
+{
+  "email_settings": {
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "alert_recipients": [
+      "abomustfaali@gmail.com"
+    ]
+  },
+  "alert_thresholds": {
+    "rmse_threshold": 0.3,
+    "accuracy_threshold": 80.0,
+    "drift_threshold": 5.0,
+    "prediction_count_threshold": 100
+  },
+  "monitoring_settings": {
+    "check_interval_hours": 6,
+    "health_check_enabled": true,
+    "auto_retrain_enabled": true
+  },
+  "notification_channels": {
+    "email_enabled": true,
+    "slack_enabled": false,
+    "discord_enabled": false
+  },
+  "retraining_schedule": {
+    "enabled": true,
+    "day_of_week": 1,
+    "hour": 23,
+    "minute": 0,
+    "timezone": "UTC"
+  },
+  "ab_testing": {
+    "enabled": true,
+    "default_traffic_split": 0.1,
+    "minimum_sample_size": 100,
+    "significance_level": 0.05
+  }
+}

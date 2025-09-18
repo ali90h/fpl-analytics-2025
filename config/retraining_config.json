@@ -1,0 +1,19 @@
+{
+  "email_alerts": {
+    "enabled": false,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "",
+    "sender_password": "",
+    "recipient_emails": []
+  },
+  "performance_thresholds": {
+    "min_rmse_improvement": 0.01,
+    "max_acceptable_rmse": 1.0,
+    "min_samples_for_training": 100
+  },
+  "retry_config": {
+    "max_retries": 3,
+    "retry_delay_minutes": 30
+  }
+}

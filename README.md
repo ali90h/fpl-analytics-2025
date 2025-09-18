@@ -58,6 +58,7 @@ python fpl_predictor.py predict --player "Salah"
 | **Fixture Analysis** | Analyze team difficulty for upcoming gameweeks | `python fpl_predictor.py fixtures --gameweeks 5-10` |
 | **Team Optimization** | Build optimal XI within budget constraints | `python fpl_predictor.py optimize-team --budget 100.0` |
 | **Top Picks** | Find best players by position and value | `python fpl_predictor.py top-picks --position MID` |
+| **Chip Strategy** | Automated recommendations for optimal chip timing | `python fpl_predictor.py chip-advice` |
 
 ---
 
@@ -91,6 +92,12 @@ python fpl_predictor.py suggest-transfers --gameweeks 5-10
 
 # Fetch latest team data from FPL API
 python fpl_predictor.py fetch-team --team-id 5135491
+
+# Get intelligent chip strategy recommendations
+python fpl_predictor.py chip-advice
+
+# Analyze optimal timing for specific chips
+python fpl_predictor.py chip-timing --chip wildcard
 ```
 
 ### **Player & Team Research**  

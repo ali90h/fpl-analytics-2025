@@ -1,0 +1,10 @@
+{
+  "rmse_threshold": 0.3,
+  "accuracy_threshold": 80.0,
+  "drift_threshold": 5.0,
+  "prediction_count_threshold": 100,
+  "email_enabled": true,
+  "slack_enabled": false,
+  "discord_enabled": false,
+  "check_interval_hours": 6
+}

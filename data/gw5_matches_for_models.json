@@ -1,0 +1,270 @@
+{
+  "metadata": {
+    "gameweek": 5,
+    "total_matches": 10,
+    "extraction_timestamp": "2025-09-19T00:51:27.537724",
+    "data_source": "official_fpl_api"
+  },
+  "matches": [
+    {
+      "gameweek": 5,
+      "fixture_id": 46,
+      "home_team": {
+        "id": 12,
+        "name": "Liverpool",
+        "short_name": "LIV",
+        "difficulty": 2,
+        "strength_overall_home": 1335,
+        "strength_attack_home": 1290,
+        "strength_defence_home": 1380
+      },
+      "away_team": {
+        "id": 9,
+        "name": "Everton",
+        "short_name": "EVE",
+        "difficulty": 5,
+        "strength_overall_away": 1115,
+        "strength_attack_away": 1140,
+        "strength_defence_away": 1090
+      },
+      "kickoff_time": "2025-09-20T11:30:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124836
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 43,
+      "home_team": {
+        "id": 6,
+        "name": "Brighton",
+        "short_name": "BHA",
+        "difficulty": 3,
+        "strength_overall_home": 1150,
+        "strength_attack_home": 1090,
+        "strength_defence_home": 1210
+      },
+      "away_team": {
+        "id": 18,
+        "name": "Spurs",
+        "short_name": "TOT",
+        "difficulty": 3,
+        "strength_overall_away": 1175,
+        "strength_attack_away": 1100,
+        "strength_defence_away": 1250
+      },
+      "kickoff_time": "2025-09-20T14:00:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124833
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 44,
+      "home_team": {
+        "id": 3,
+        "name": "Burnley",
+        "short_name": "BUR",
+        "difficulty": 3,
+        "strength_overall_home": 1050,
+        "strength_attack_home": 1050,
+        "strength_defence_home": 1050
+      },
+      "away_team": {
+        "id": 16,
+        "name": "Nott'm Forest",
+        "short_name": "NFO",
+        "difficulty": 2,
+        "strength_overall_away": 1205,
+        "strength_attack_away": 1230,
+        "strength_defence_away": 1180
+      },
+      "kickoff_time": "2025-09-20T14:00:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124834
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 49,
+      "home_team": {
+        "id": 19,
+        "name": "West Ham",
+        "short_name": "WHU",
+        "difficulty": 3,
+        "strength_overall_home": 1100,
+        "strength_attack_home": 1100,
+        "strength_defence_home": 1100
+      },
+      "away_team": {
+        "id": 8,
+        "name": "Crystal Palace",
+        "short_name": "CRY",
+        "difficulty": 2,
+        "strength_overall_away": 1160,
+        "strength_attack_away": 1130,
+        "strength_defence_away": 1190
+      },
+      "kickoff_time": "2025-09-20T14:00:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124839
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 50,
+      "home_team": {
+        "id": 20,
+        "name": "Wolves",
+        "short_name": "WOL",
+        "difficulty": 2,
+        "strength_overall_home": 1100,
+        "strength_attack_home": 1080,
+        "strength_defence_home": 1120
+      },
+      "away_team": {
+        "id": 11,
+        "name": "Leeds",
+        "short_name": "LEE",
+        "difficulty": 3,
+        "strength_overall_away": 1075,
+        "strength_attack_away": 1050,
+        "strength_defence_away": 1100
+      },
+      "kickoff_time": "2025-09-20T14:00:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124840
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 47,
+      "home_team": {
+        "id": 14,
+        "name": "Man Utd",
+        "short_name": "MUN",
+        "difficulty": 3,
+        "strength_overall_home": 1105,
+        "strength_attack_home": 1110,
+        "strength_defence_home": 1100
+      },
+      "away_team": {
+        "id": 7,
+        "name": "Chelsea",
+        "short_name": "CHE",
+        "difficulty": 3,
+        "strength_overall_away": 1245,
+        "strength_attack_away": 1190,
+        "strength_defence_away": 1300
+      },
+      "kickoff_time": "2025-09-20T16:30:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124837
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 45,
+      "home_team": {
+        "id": 10,
+        "name": "Fulham",
+        "short_name": "FUL",
+        "difficulty": 3,
+        "strength_overall_home": 1125,
+        "strength_attack_home": 1130,
+        "strength_defence_home": 1120
+      },
+      "away_team": {
+        "id": 5,
+        "name": "Brentford",
+        "short_name": "BRE",
+        "difficulty": 3,
+        "strength_overall_away": 1185,
+        "strength_attack_away": 1080,
+        "strength_defence_away": 1290
+      },
+      "kickoff_time": "2025-09-20T19:00:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124835
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 42,
+      "home_team": {
+        "id": 4,
+        "name": "Bournemouth",
+        "short_name": "BOU",
+        "difficulty": 3,
+        "strength_overall_home": 1150,
+        "strength_attack_home": 1100,
+        "strength_defence_home": 1200
+      },
+      "away_team": {
+        "id": 15,
+        "name": "Newcastle",
+        "short_name": "NEW",
+        "difficulty": 3,
+        "strength_overall_away": 1245,
+        "strength_attack_away": 1170,
+        "strength_defence_away": 1320
+      },
+      "kickoff_time": "2025-09-21T13:00:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124832
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 48,
+      "home_team": {
+        "id": 17,
+        "name": "Sunderland",
+        "short_name": "SUN",
+        "difficulty": 3,
+        "strength_overall_home": 1050,
+        "strength_attack_home": 1050,
+        "strength_defence_home": 1050
+      },
+      "away_team": {
+        "id": 2,
+        "name": "Aston Villa",
+        "short_name": "AVL",
+        "difficulty": 2,
+        "strength_overall_away": 1250,
+        "strength_attack_away": 1200,
+        "strength_defence_away": 1300
+      },
+      "kickoff_time": "2025-09-21T13:00:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124838
+    },
+    {
+      "gameweek": 5,
+      "fixture_id": 41,
+      "home_team": {
+        "id": 1,
+        "name": "Arsenal",
+        "short_name": "ARS",
+        "difficulty": 4,
+        "strength_overall_home": 1320,
+        "strength_attack_home": 1350,
+        "strength_defence_home": 1290
+      },
+      "away_team": {
+        "id": 13,
+        "name": "Man City",
+        "short_name": "MCI",
+        "difficulty": 4,
+        "strength_overall_away": 1315,
+        "strength_attack_away": 1250,
+        "strength_defence_away": 1380
+      },
+      "kickoff_time": "2025-09-21T15:30:00Z",
+      "finished": false,
+      "provisional_start_time": false,
+      "pulse_id": 124831
+    }
+  ]
+}

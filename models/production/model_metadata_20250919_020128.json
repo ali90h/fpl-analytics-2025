@@ -1,0 +1,28 @@
+{
+  "timestamp": "20250919_020128",
+  "model_performance": {
+    "xgboost": {
+      "train_rmse": 0.0041562853265676965,
+      "train_mae": 0.0025159106589853764
+    },
+    "lightgbm": {
+      "train_rmse": 0.21918767608794965,
+      "train_mae": 0.06532243623381595
+    },
+    "random_forest": {
+      "train_rmse": 0.1972450858743552,
+      "train_mae": 0.04567662565905093
+    },
+    "gradient_boosting": {
+      "train_rmse": 0.00019694522869633308,
+      "train_mae": 0.0001559968715877313
+    }
+  },
+  "dataset_info": {
+    "training_samples": 569,
+    "features_count": 124,
+    "gameweeks_trained": "1-4"
+  },
+  "retrained": true,
+  "previous_model_improved": true
+}

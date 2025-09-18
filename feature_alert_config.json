@@ -1,0 +1,10 @@
+{
+  "drift_threshold": 0.05,
+  "psi_threshold": 0.1,
+  "missing_data_threshold": 5.0,
+  "outlier_threshold": 10.0,
+  "quality_score_threshold": 0.7,
+  "consecutive_drift_threshold": 3,
+  "drift_check_interval_hours": 12,
+  "quality_check_interval_hours": 6
+}

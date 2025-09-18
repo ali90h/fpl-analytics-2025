@@ -15,6 +15,25 @@ python fpl_predictor.py fetch-team --team-id 5135491
 # Shows starting XI, bench, predicted points, bank balance, and transfers made
 ```
 
+### **🎴 Chip Strategy Recommendations**
+```bash
+# Get comprehensive chip strategy analysis
+python fpl_predictor.py chip-advice
+# Analyzes optimal timing for all available chips
+
+# Analyze specific chip timing
+python fpl_predictor.py chip-timing --chip wildcard
+python fpl_predictor.py chip-timing --chip bench_boost  
+python fpl_predictor.py chip-timing --chip triple_captain
+python fpl_predictor.py chip-timing --chip free_hit
+# Detailed analysis for individual chip usage
+
+# Custom gameweek range for chip planning
+python fpl_predictor.py chip-advice --gameweeks 5-20
+python fpl_predictor.py chip-timing --chip all --gameweeks 8-15
+# Strategic planning for specific periods
+```
+
 ### **🔮 Player Predictions**
 ```bash
 # Predict points for a specific player
