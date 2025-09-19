@@ -10,7 +10,7 @@ from datetime import datetime
 import os
 
 # Import our modules (these would be implemented)
-# from src.models.predictor import EnsemblePredictor
+# from src.models.predictor import Predictor
 # from src.data.database import get_db_session
 # from src.features.feature_engineer import FeatureEngineer
 
@@ -79,7 +79,7 @@ def get_predictor():
     This would load the actual trained models
     """
     # In a real implementation, this would load saved models
-    # predictor = EnsemblePredictor.load("models/saved/ensemble_v1.pkl")
+    # predictor = Predictor.load("models/saved/model_v1.pkl")
     # return predictor
     return None
 
@@ -120,7 +120,7 @@ async def predict_player_performance(
         # 1. Validate player exists
         # 2. Get player features
         # 3. Apply feature engineering
-        # 4. Make prediction using ensemble model
+        # 4. Make prediction using ML model
         # 5. Return structured response
         
         # Mock response for now
@@ -134,7 +134,7 @@ async def predict_player_performance(
         return PlayerPredictionResponse(
             prediction=mock_prediction,
             confidence=0.82,
-            model_version="ensemble_v1.0",
+            model_version="xgboost_v1.0",
             timestamp=datetime.utcnow().isoformat()
         )
         
@@ -287,13 +287,13 @@ async def get_models_info():
                 "last_trained": "2024-01-01"
             },
             {
-                "name": "neural_network",
+                "name": "xgboost",
                 "version": "1.0",
                 "accuracy": 0.73,
                 "last_trained": "2024-01-01"
             },
             {
-                "name": "ensemble",
+                "name": "xgboost_ml",
                 "version": "1.0",
                 "accuracy": 0.78,
                 "last_trained": "2024-01-01"

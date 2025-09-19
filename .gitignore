@@ -65,3 +65,17 @@ models/production/*.joblib
 # Personal data
 data/current_team.json
 data/fpl_data.db
+# Emergency cleanup additions
+fix_*.py
+test_*.py
+*_quick_fixes.py
+diagnose_*.py
+demo_*.html
+data/bootstrap_data_*.json
+data/performance_history/
+data/exports/*.json
+archive/
+*.pyc
+.pytest_cache/
+.coverage
+.env
